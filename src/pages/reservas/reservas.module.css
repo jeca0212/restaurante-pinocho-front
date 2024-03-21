@@ -1,0 +1,105 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10%;
+    flex-direction: column;
+    padding-top: 10%
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 475px; 
+    margin: auto;
+  }
+  
+  .formGroup {
+    width: 100%;
+  }
+  
+  .label {
+    font-family: Roboto-mono, sans-serif;
+    color: white; 
+    margin-bottom: 8px; 
+    display: block; 
+  }
+  
+  .input {
+    
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: #0a0808; 
+    color: white; 
+    box-sizing: border-box; 
+  }
+  .textarea{
+    padding-bottom: 87px
+  }
+  .registerButtonContainer{
+    display: flex;
+    justify-content: center;
+  }
+ 
+   .registerButton {
+    font-family: Roboto-mono, sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+    
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #111;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 144px;
+    transition: transform 0.3s ease;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .loginForm {
+      max-width: 90%; 
+    }
+    .container{
+        padding-top: 30%;
+      }
+    }
+  
+  
+  .loginButton {
+    font-family: Roboto-mono, sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+    background-color: #FEC73A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #111;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 144px;
+    transition: transform 0.3s ease;
+  }
+  .loginButton:hover {
+    transform: scale(1.1);
+  }
+  .registerButton:hover{
+    transform: scale(1.1);
+  }

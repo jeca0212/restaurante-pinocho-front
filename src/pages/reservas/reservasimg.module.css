@@ -1,0 +1,173 @@
+.reservationContainer {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    
+    padding-top: 8%;
+}
+.container {
+    flex-basis: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 475px; 
+    padding-left: 166px;
+}
+.title{
+    color:#fff;
+    font-family: Roboto-mono, sans-serif;
+    font-size: 2.9rem;
+    font-weight:600;
+    letter-spacing: 0.3px;
+}
+.text {
+    color: #fff;
+    font-family: Roboto-mono, sans-serif;
+    font-size: 0.9rem;
+    line-height: 20px;
+    padding-bottom: 5%;
+    
+  }
+  .title, .text {
+    width: 100%; 
+    text-align: start; 
+    
+}
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem; 
+    }
+  
+    .textp {
+        font-size: 0.9rem; 
+        padding-right: 0px
+    }
+    .reservationContainer {
+        flex-direction: column; 
+    }
+    .container, .imageContainer {
+        flex-basis: auto; 
+        width: 90%; 
+        padding-bottom: 5%;
+    }
+    .container {
+        padding-top: 0; 
+        padding-left: 0;
+    }
+}
+.formContainer {
+    flex-basis: 50%; 
+    justify-content: center;
+    display: flex;
+}
+
+.imageContainer {
+    flex-basis: 50%; 
+    justify-content: center;
+    display: flex;
+}
+
+
+.reservationImage {
+    width: 50%; 
+    height: auto; 
+    border-radius: 200px 
+}
+
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 475px; 
+    margin: auto;
+    padding-bottom: 10%;
+  }
+  
+  .formGroup {
+    width: 100%;
+  }
+  
+  .label {
+    font-family: Roboto-mono, sans-serif;
+    color: white; 
+    margin-bottom: 8px; 
+    display: block; 
+  }
+  
+  .input {
+    
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: #0a0808; 
+    color: white; 
+    box-sizing: border-box; 
+  }
+  
+   .registerButton {
+    font-family: Roboto-mono, sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+    
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #111;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: block;
+    padding: 14px 120px;
+    transition: transform 0.3s ease;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .loginForm {
+      max-width: 90%; 
+    }
+    .container{
+        padding-top: 30%;
+      }
+    }
+  
+  
+  .loginButton {
+    font-family: Roboto-mono, sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+    background-color: #FEC73A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #111;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: block;
+    padding: 14px 120px;
+    transition: transform 0.3s ease;
+  }
+  .loginButton:hover{
+    transform: scale(1.1);
+  }
+  @media (max-width: 768px) {
+    .loginButton {
+  font-size: 14px; 
+  padding: 14px 100px;
+  
+}
+}

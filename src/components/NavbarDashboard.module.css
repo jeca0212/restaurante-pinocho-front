@@ -1,0 +1,163 @@
+.container {
+    max-width: 100%;
+    margin: auto;
+    font-family: Roboto-mono, sans-serif;
+    font-size: 20px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+   
+    top: 0;
+    left: 0;
+    width: 100%; 
+    background-color: #000;
+    color: white;
+    z-index: 1000; 
+    padding: 10px 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 0 20px;
+    position: relative; 
+    z-index: 10;
+  }
+  
+  .logoContainer {
+    padding: 10px 0;
+  }
+  
+  .logo {
+    height: 60px;
+  }
+  
+  .menuIcon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px;
+    width: 35px;
+    margin-left: 100px
+  }
+  
+  .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 100%;
+    right: 0;
+   
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 20;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 50px;
+  }
+  
+  .navItem {
+    margin-left: 90px;
+  }
+  
+  .navLink {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px 10px;
+    transition: transform 0.3s ease;
+  }
+  .radius{
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    margin-top: 10px;
+  }
+  
+  .button {
+    margin-top: 10px;
+    background-color: #FEC73A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #111;
+    font-size: 20px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    border-radius: 50px;
+    font-family: Roboto-mono, sans-serif;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .navLink:hover, .button:hover{
+    transform: scale(1.1);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .menuIcon {
+      display: flex; 
+      margin-left: auto;
+      padding-right: 50px;
+    }
+  
+    .navbar  {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #111;
+      width: 100%;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.1);
+      font-size: 15px;
+      font-weight: 500;
+    }
+  
+    .button, .radius{
+      font-size: 15px;
+      font-weight: 600;
+    }
+  
+    .navActive {
+      transform: translateY(0); 
+    }
+  
+    .navList {
+      display: none; 
+      flex-direction: column;
+      width: 75%;
+      /* padding: 0; */
+      padding-right: 217px;
+    }
+  
+    .navList .navItem {
+      text-align: center;
+      width: 100%;
+      
+    }
+  
+    .navList .navItem a {
+      display: block;
+    }
+  
+    .navActive .navList {
+      display: flex; 
+    }
+  }

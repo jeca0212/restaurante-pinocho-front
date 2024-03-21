@@ -1,0 +1,29 @@
+.firstbutton{
+    padding: 24px 8px;
+}
+
+.button {
+    text-decoration: none;
+    font-family: Roboto-mono, sans-serif;
+    font-size: 20px;
+    font-weight:600;
+    letter-spacing: 0.3px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 24px 355px;
+    margin: 10px 0; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;  
+    font-size: 16px; 
+  }
+  .button:hover {
+    background-color: #333; 
+  }
+  @media (max-width: 768px) {
+        .button {
+      font-size: 14px; 
+      padding: 10px 144px;
+    }
+  }
