@@ -1,5 +1,5 @@
 import { NavbarDashboard } from "@/components/NavbarDashboard"
-import { AdminDashboard } from "./homeDashboard";
+import  AdminDashboard  from "./homeDashboard";
 import withAuthDashboard from "@/utils/withAuthDashboard";
 
 
