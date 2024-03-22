@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { MenuPinocho } from "./menus";
+import  MenuPinocho  from "./menus";
 
 
 const Menu = () => {

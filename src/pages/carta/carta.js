@@ -11,7 +11,7 @@ const images = [
   "/img/carta/tartadequesoenzaragoza.webp",
 ];
 
-export const CartaPinocho = () => {
+ const CartaPinocho = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -128,3 +128,4 @@ export const CartaPinocho = () => {
     </>
   );
 };
+export default CartaPinocho ;

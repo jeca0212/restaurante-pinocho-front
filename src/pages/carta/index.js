@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { CartaPinocho } from "./carta";
+import  CartaPinocho  from "./carta";
 
 
 const Carta = () => {

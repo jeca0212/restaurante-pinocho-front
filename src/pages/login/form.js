@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import styles from "./form.module.css";
 
-export const Login = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -97,3 +97,4 @@ export const Login = () => {
     </div>
   );
 }
+export default Login;

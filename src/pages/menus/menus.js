@@ -10,8 +10,7 @@ const images = [
   "/img/menu/restauranteendelicias.webp",
   "/img/menu/reservadegruposzaragoza.webp",
 ];
-
-export const MenuPinocho = () => {
+ const MenuPinocho = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
 
@@ -127,3 +126,5 @@ export const MenuPinocho = () => {
     </>
   );
 };
+
+export default MenuPinocho ;
