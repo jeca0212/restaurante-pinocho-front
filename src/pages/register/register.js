@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
       e.preventDefault();
 
       // Hacer una petición a tu API para registrar al usuario
-      const response = await fetch('http://localhost:8000/api/register', {
+      const response = await fetch('https://jessica.v2.proyectosdwa.es/public/api/register', {
           method: 'POST',
           body: JSON.stringify(formData),
           headers: { 'Content-Type': 'application/json' },

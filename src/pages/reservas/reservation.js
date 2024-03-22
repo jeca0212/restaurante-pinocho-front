@@ -38,7 +38,7 @@ const ReservasPage = () => {
     const fetchReservations = async () => {
       const token = localStorage.getItem('access_token');
       try {
-        const response = await Axios.get('http://localhost:8000/api/reservations', {
+        const response = await Axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations', {
           headers: {
             'Authorization': `Bearer ${token}`
           },
@@ -99,7 +99,7 @@ const ReservasPage = () => {
     console.warn(token); // Imprime el token para asegurarte de que se está obteniendo correctamente
   
     try {
-      const response = await Axios.post('http://localhost:8000/api/reservations', data, {
+      const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/reservations', data, {
         headers: {
           'Authorization': `Bearer ${token}`
         },
@@ -138,7 +138,7 @@ const ReservasPage = () => {
     const token = localStorage.getItem('access_token');
     //console.warn(token); // Imprime el token para asegurarte de que se está obteniendo correctamente
     try {
-        const response = await Axios.post('http://localhost:8000/api/logout', {}, {
+        const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/logout', {}, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

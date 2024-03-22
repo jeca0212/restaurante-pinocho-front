@@ -13,14 +13,14 @@ const GestionReservas = () => {
     const [scoreChange, setScoreChange] = useState({});
     
     useEffect(() => {
-        axios.get('http://localhost:8000/api/reservations?status=pendiente')
+        axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations?status=pendiente')
             .then(response => {
                 setReservasPendientes(response.data);
             });
     }, []);
 
     const handleAceptar = (id, score) => {
-      axios.put(`http://localhost:8000/api/reservations/${id}/accept`, { status: 'aceptado', score })
+      axios.put(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/accept`, { status: 'aceptado', score })
           .then(response => {
               console.log('Reserva aceptada:', response.data);
               Swal.fire(
@@ -39,7 +39,7 @@ const GestionReservas = () => {
     };
     
     const handleRechazar = (id, score) => {
-      axios.put(`http://localhost:8000/api/reservations/${id}/cancel`, { status: 'rechazado', score })
+      axios.put(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/cancel`, { status: 'rechazado', score })
           .then(response => {
               console.log('Reserva rechazada:', response.data);
               Swal.fire(
@@ -62,7 +62,7 @@ const GestionReservas = () => {
         console.error('newScore es undefined');
         return;
     }
-    fetch(`http://localhost:8000/api/reservations/${id}/score`, {
+    fetch(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/score`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const GestionReservas = () => {
 
     const getAceptadas = () => {
         if (!mostrarAceptadas) {
-            axios.get('http://localhost:8000/api/reservations/aceptadas')
+            axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations/aceptadas')
                 .then(response => {
                     setReservasAceptadas(response.data);
                     setMostrarAceptadas(true);
@@ -104,7 +104,7 @@ const GestionReservas = () => {
 
     const getRechazadas = () => {
         if (!mostrarRechazadas) {
-            axios.get('http://localhost:8000/api/reservations/rechazadas')
+            axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations/rechazadas')
                 .then(response => {
                   //console.log(response.data);
                     setReservasRechazadas(response.data);
