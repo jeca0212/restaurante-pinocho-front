@@ -45,11 +45,13 @@
     }
     .reservationContainer {
         flex-direction: column; 
+        padding-top: 8%;
+        padding-left: 10%;
     }
     .container, .imageContainer {
         flex-basis: auto; 
-        width: 90%; 
-        padding-bottom: 5%;
+        width: 108%; 
+        
     }
     .container {
         padding-top: 0; 

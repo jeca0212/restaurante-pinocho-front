@@ -36,6 +36,7 @@
   @media (max-width: 768px) {
     .containerjusteat {
       flex-direction: column;
+      width: 106%;
     }
     .textjusteat{
       color: #fff;
@@ -79,16 +80,17 @@
   
   .column  {
     display: block;
-    margin-bottom: 10px; /* Espaciado entre enlaces */
+    margin-bottom: 10px; 
   }
   
   .column  {
-    margin-bottom: 10px; /* Espaciado entre el título y los íconos */
+    margin-bottom: 10px; 
   }
   
   @media (max-width: 768px) {
     .footer {
-      grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+      grid-template-columns: 1fr; 
+      width: 108%;
     }
   }
 

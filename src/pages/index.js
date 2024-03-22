@@ -23,7 +23,7 @@ import { MasonryGallery } from "@/components/gallery";
       <div className={stylesIndex.leftColumn}>
         <h2 className={stylesIndex.about}>Nosotros</h2>
         <p className={stylesIndex.textabout}>Desde 2012, en el barrio Delicias de Zaragoza, Pinocho ha ofrecido una experiencia culinaria excepcional. Laura Bermejo del Castillo y Rubén Aznar Blanco, con más de 15 años en hostelería, lideran nuestro compromiso con la calidad. Cada plato refleja nuestra pasión por la gastronomía, con ingredientes frescos y atención personalizada. Únete a nosotros y descubre el encanto de Pinocho en cada visita.</p>
-        <button className={stylesOrange.button}>Visita virtual</button>
+        <Link className={stylesOrange.button} href="https://webobook.com/public/60bd0faac1180553c6666e72,en"> Visita virtual</Link>
       </div>
       <div className={stylesIndex.rightColumn}>
         <img src="/img/indeximg/nosotros.jpeg" alt="Descripción de la imagen" className={stylesIndex.image} />

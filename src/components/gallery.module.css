@@ -4,6 +4,16 @@
     width: auto;
     padding: 2%;
   }
+  @media (max-width: 768px) {
+    .myMasonryGrid {
+      width: 130%;
+      flex-direction: column;
+      width: auto;
+    padding: 2%;
+    align-items: center;
+
+    }
+  }
   
   .myMasonryGridColumn {
     padding-left: 30px; 

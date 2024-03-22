@@ -24,6 +24,7 @@
   @media (max-width: 768px) {
     .button {
   font-size: 14px; 
+  padding: 14px 93px;
   
 }
 }

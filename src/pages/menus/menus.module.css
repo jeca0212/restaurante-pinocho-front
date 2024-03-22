@@ -31,9 +31,11 @@
         padding-right: 0px
     }
     .content{
-        padding:5px;
+        padding:40px;
+        margin: 0;
         
     }
+    
   }
 
   .container {
@@ -88,5 +90,10 @@
   
     .image, .text {
       width: 100%; 
+    }
+    .container {
+      max-width: 100%;
+    
+      padding-left: 9%;
     }
   }

@@ -12,7 +12,7 @@ export const Footer = ()=>{
         
       </div>
       <div className={stylesFooter.rightColumn}>
-      <Link href="/menus" className={styles.button}>Just Eat</Link>
+      <Link href="https://www.just-eat.es/restaurants-restaurante-pinocho-zaragoza/menu" className={styles.button}>Just Eat</Link>
       <Link href="/reservas" className={styles.button}>Reserva ya</Link>
       </div>
     </div>
