@@ -114,9 +114,10 @@
 @media (max-width: 768px) {
   .menuIcon {
     display: flex; 
-    margin-left: auto;
+ 
     padding-right: 50px;
   }
+  
 
   .navbar  {
     position: absolute;
@@ -129,6 +130,8 @@
     background-color: rgba(0, 0, 0, 0.1);
     font-size: 15px;
     font-weight: 500;
+    /* justify-content: center;
+    padding: 0; */
   }
 
   .button, .radius{
