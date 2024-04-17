@@ -127,7 +127,7 @@ const ContactForm = () => {
                         required
                     />
                 </div>
-                <button type="submit" className={styles.submitButton}>Enviar</button>
+                <button type="submit" onTouchEnd={handleSubmit} className={styles.submitButton}>Enviar</button>
             </form>
         </div>
         <div className={styles.mapAndBusInfo}>
