@@ -69,8 +69,14 @@
   @media (max-width: 768px) {
     .loginForm {
       max-width: 90%; 
+      padding: 10%;
     }
     .container{
       padding-top: 30%;
+      padding: 8%;
+    }
+    
+    .loginButton{
+        padding: 10px 100px;
     }
   }
