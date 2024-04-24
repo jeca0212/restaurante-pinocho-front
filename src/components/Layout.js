@@ -2,24 +2,35 @@ import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import styles from './Layout.module.css'; 
 import { useEffect } from "react";
+import Head from "next/head";
 
 const Layout = ({ children }) => {
   useEffect(() => {
-    document.body.style.backgroundColor = '#0C0C0C'; 
-    document.body.style.margin = '0'; 
-    document.body.style.padding = '0'; 
-    document.body.style.height = '100vh'; 
-    document.body.style.width = '100vw';
-    document.body.style.display = 'inline-block';
-    // document.body.style.minHeight = '100vh'; 
+    // document.body.style.backgroundColor = '#0C0C0C'; 
+     document.body.style.margin = '0'; 
+     document.body.style.padding = '0'; 
+    // document.body.style.height = '100vh'; 
+    // document.body.style.width = '100vw';
+    // document.body.style.display = 'inline-block';
+    //document.body.style.minHeight = '100vh'; 
   }, []); 
 
   return (
+    <>   <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0  minimum-scale=1.0" />
+        <link rel="icon" href="/pinocho.png" type="image/png"/>
+        <title>Restaurante Pinocho | Zaragoza</title>
+        <meta name="description" content="¡Descubre la auténtica cocina mediterránea en Restaurante Pinocho, calle San Rafael 27, Delicias, Zaragoza! ¡Haz tu reserva y déjate sorprender!" />
+      </Head>
+      
     <div className={styles.container}>
       <Navbar />
       <main>{children}</main>
       <Footer />
     </div>
+    
+    </>
   );
 };
 

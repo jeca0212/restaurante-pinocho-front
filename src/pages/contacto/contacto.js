@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import styles from './ContactForm.module.css';
 import axios from 'axios';
+import Link from 'next/link';
 
 
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
-    const [showBusInfo, setShowBusInfo] = useState(false); 
-    const [busInfo, setBusInfo] = useState(null);
+   
 
     const handleInputChange = (event) => {
         switch (event.target.name) {
@@ -60,26 +60,26 @@ const ContactForm = () => {
     };
 
 
-    const handleShowBusInfoClick = async () => {
-        if (!showBusInfo) {
-            try {
-                const response = await axios.get(`https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus/1?fl=c1%2Cc2%2C24%2C42%2C33&rf=html&srsname=wgs84`, {
-                    headers: {
+    // const handleShowBusInfoClick = async () => {
+    //     if (!showBusInfo) {
+    //         try {
+    //             const response = await axios.get(`https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus/1?fl=c1%2Cc2%2C24%2C42%2C33&rf=html&srsname=wgs84`, {
+    //                 headers: {
                         
-                        'Accept': 'application/geo+json',
+    //                     'Accept': 'application/geo+json',
                        
-                    }
-                });
-                console.log(response.data);
-                setBusInfo(response.data);
-                const title = response.data.properties.title;
-                //console.log(title);
-            } catch (error) {
-                console.error("Error fetching bus info:", error);
-            }
-        }
-        setShowBusInfo(!showBusInfo);
-    };
+    //                 }
+    //             });
+    //             console.log(response.data);
+    //             setBusInfo(response.data);
+    //             const title = response.data.properties.title;
+    //             //console.log(title);
+    //         } catch (error) {
+    //             console.error("Error fetching bus info:", error);
+    //         }
+    //     }
+    //     setShowBusInfo(!showBusInfo);
+    // };
 
     return (
         <div className={styles.container}>
@@ -131,17 +131,22 @@ const ContactForm = () => {
             </form>
         </div>
         <div className={styles.mapAndBusInfo}>
-            <img src="/img/contacto/comollegarrestaurantepinocho.png" alt="Cómo llegar" className={styles.mapImage} />
-            <button onClick={handleShowBusInfoClick} className={styles.busInfoButton}>
-                {showBusInfo ? "Ocultar Líneas de Autobús" : "¿Cómo llegar?"}
-            </button>
-            {showBusInfo && busInfo && (
-                <div className={styles.busInfo}>
-                    <h2 className={styles.titlep}>Información de la Línea de Autobús</h2>
-                    <p>{busInfo.id} </p>
-                </div>
-            )}
-            {showBusInfo && !busInfo && <p className={styles.titlep}>Cargando información de la línea...</p>}
+            <div className={styles.h2}>
+            <h2 className={styles.title2}>¿Cómo llegar?</h2>
+            <ul className={styles.ul}>
+                <li className={styles.tel}>Teléfono: <Link className={styles.atel} href="tel:659196212">659 19 62 12</Link> </li>
+            </ul>
+            </div>
+            <div className={styles.map}>
+            <iframe className={styles.iframe}
+    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d95398.75461409175!2d-0.9930925034890671!3d41.65118117568068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0xd596b339a39a2a3%3A0xa2b8deeb93f9fd5b!2sCalle%20de%20S.%20Rafael%2C%2027%2C%20Delicias%2C%2050017%20Zaragoza!3m2!1d41.651267!2d-0.9106449999999999!5e0!3m2!1ses!2ses!4v1713515163308!5m2!1ses!2ses" 
+   
+    allowFullScreen="" 
+    loading="lazy" 
+    referrerPolicy="no-referrer-when-downgrade"
+></iframe>
+</div>
+            
         </div>
     </div>
 );

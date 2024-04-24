@@ -4,6 +4,7 @@
     align-items: center;
     padding-top: 8%;
     flex-wrap: wrap; 
+    column-gap: 5%;
 }
 
 .formContainer {
@@ -12,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 475px;
-    padding-left: 166px;
+
     padding-top: 10%;
     padding-bottom: 8%;
     color: #fff; 
@@ -27,13 +28,11 @@
     align-items: center;
 }
 
-.mapImage {
-    width: 30%;
-    height: auto;
-   
+
+
+.form{
+  width: 100%;
 }
-
-
 
 
 .loginForm {
@@ -70,19 +69,58 @@
     color: white; 
     box-sizing: border-box; 
   }
+  .map {
+    width: 100%;
+  }
   
+  .iframe{
+    width: 100%;
+    height: 270px;
+    border-radius: 20px;
+  }
+  .h2{
+    text-align: center;
+  }
+ 
  
   @media (max-width: 768px) {
-    .container, .formContainer, .imageContainer {
+    .container, .formContainer {
         flex-direction: column;
-        padding-left: 0;
-        align-items: center;
+        padding-left: 2%;
+        align-items: start;
         flex-basis: auto; 
-        width: 108%; 
-       
-
+        width: 98%; 
+     
+    }
+    .h2{
+      width: 100%;
+      text-align: center;
     }
 
+
+    .form{
+      width: 90%;
+    }
+    .mapAndBusInfo {
+      flex-basis: 30%;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding-bottom: 5%;
+  }
+    .map {
+  
+      width:98%;
+      text-align: center;
+     
+  }
+.iframe{
+  width: 350px;
+  height: 250px;
+  border-radius: 20px;
+}
     .reservationImage {
         max-width: 100%; 
     }
@@ -102,7 +140,7 @@
     margin-top: 10px;
     background-color: #FEC73A;
     border: none;
-    padding: 10px 20px;
+  
     cursor: pointer;
     color: #111;
     font-weight:600;
@@ -110,7 +148,7 @@
     border-radius: 50px;
     text-decoration: none;
     display: block;
-    padding: 14px 120px;
+    padding: 14px 205px;
     transition: transform 0.3s ease;
   }
   .submitButton:hover{
@@ -142,7 +180,7 @@
   @media (max-width: 768px) {
     .submitButton {
   font-size: 14px; 
-  padding: 14px 100px;
+  padding: 14px 150px;
   
 }
 }
@@ -151,4 +189,30 @@
     color: #fff;
     font-family: Roboto-mono, sans-serif;
     font-size: 18px;
+}
+.title2{
+  color: #fff;
+  font-family: Roboto-mono, sans-serif;
+  font-size: 20px;
+  padding-top: 8%;
+}
+.tel{
+  color: #fff;
+  font-family: Roboto-mono, sans-serif;
+  font-size: 18px;
+  list-style: none;
+  text-align: center;
+  padding-bottom: 5%;
+ 
+}
+.atel{
+  color: #fff;
+  font-family: Roboto-mono, sans-serif;
+  font-size: 18px;
+ text-decoration: none;
+
+ 
+}
+.ul{
+  padding: 0%;
 }

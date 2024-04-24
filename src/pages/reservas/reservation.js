@@ -96,7 +96,7 @@ const ReservasPage = () => {
   const createReservation = async (data) => {
     // Recuperar el token del almacenamiento local
     const token = localStorage.getItem('access_token');
-    console.warn(token); // Imprime el token para asegurarte de que se está obteniendo correctamente
+    
   
     try {
       const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/reservations', data, {

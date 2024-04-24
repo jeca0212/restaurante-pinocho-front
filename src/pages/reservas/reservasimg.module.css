@@ -46,16 +46,21 @@
     .reservationContainer {
         flex-direction: column; 
         padding-top: 8%;
-        padding-left: 10%;
+        padding-left: 5%;
+        width: 90%;
+
     }
     .container, .imageContainer {
         flex-basis: auto; 
-        width: 108%; 
+        width: 100%; 
         
     }
     .container {
         padding-top: 0; 
         padding-left: 0;
+    }
+    .imageContainer {
+      padding-bottom: 50px;
     }
 }
 .formContainer {
@@ -135,15 +140,15 @@
   
  
   @media (max-width: 768px) {
-    .loginForm {
+    /* .loginForm {
       max-width: 90%; 
-    }
+    } */
     .container{
         padding-top: 30%;
       }
     }
   
-  
+   
   .loginButton {
     font-family: Roboto-mono, sans-serif;
     font-size: 18px;
@@ -169,7 +174,7 @@
   @media (max-width: 768px) {
     .loginButton {
   font-size: 14px; 
-  padding: 14px 100px;
+  padding: 14px 80px;
   
 }
 }

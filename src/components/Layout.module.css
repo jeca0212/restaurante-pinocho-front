@@ -4,6 +4,8 @@
     height: 100%;
     display: inline-block;
   }
+
+  
   @media (max-width: 768px) {
     .container {
       min-width: 100vw; 
