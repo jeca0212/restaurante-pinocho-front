@@ -84,11 +84,13 @@
     font-size: 14px;
     padding: 10px 144px;
   }
+  
 }
 
 .containerButton {
   display: flex;
   flex-direction: row;
+  gap: 20px;
 }
 
 .Button {
@@ -112,4 +114,11 @@
 .ContainerButton{
   gap: 20px;
   display: flex;
+}
+@media (max-width: 768px) {
+  .ContainerButton {
+    flex-direction: column;
+    padding-top: 10%;
+  }
+  
 }

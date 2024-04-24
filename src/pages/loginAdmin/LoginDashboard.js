@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios'; 
+import styles from "./LoginDashboard.module.css";
 
 const LoginDashboard = () => {
     const [username, setUsername] = useState('');
@@ -35,11 +36,16 @@ const LoginDashboard = () => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-            <button type="submit">Login</button>
+        <div className={styles.container}> 
+        <div>
+        <h1 className={styles.title}>Iniciar sesión</h1>  
+        </div>
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
+            <input className={styles.input} type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
+            <input className={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+            <button className={styles.loginButton} type="submit">Entrar</button>
         </form>
+        </div>
     );
 }
 

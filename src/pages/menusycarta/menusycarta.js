@@ -44,8 +44,8 @@ const UploadForm = ({ route }) => {
 
     return (
         <form onSubmit={submitHandler}>
-            <input type="file" onChange={(event) => setSelectedFile(event.target.files[0])} />
-            <button type="submit">Subir</button>
+            <input className={styles.fileInput} type="file" onChange={(event) => setSelectedFile(event.target.files[0])} />
+            <button className={styles.submitButton} type="submit">Subir</button>
         </form>
     );
 };
@@ -53,9 +53,10 @@ const UploadForm = ({ route }) => {
 export default function Home() {
     return (
         <>
-        <div className={styles.title}>
-            <h1>Menús y Carta</h1>
-            <p>Sube tus pdfs donde más te interese </p>
+        <div className={styles.ContainerFluid}>
+        <div className={styles.titleContainer}>
+            <h1 className={styles.title}>Menús y Carta</h1>
+            <p className={styles.text}>Sube tus pdfs donde más te interese </p>
         </div>
         <div className={styles.container}>
            
@@ -83,6 +84,7 @@ export default function Home() {
           <h2>Subir postres</h2>
           <UploadForm route="https://jessica.v2.proyectosdwa.es/public/api/upload/postres" />
         </div>
+      </div>
       </div>
       </>
     );
