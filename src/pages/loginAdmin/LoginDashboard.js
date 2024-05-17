@@ -11,7 +11,7 @@ const LoginDashboard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://jessica.v2.proyectosdwa.es/public/api/login-dashboard', {
+            const response = await axios.post('http://localhost:8000/api/login-dashboard', {
                 username,
                 password
             });

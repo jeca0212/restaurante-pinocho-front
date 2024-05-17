@@ -13,14 +13,14 @@ const GestionReservas = () => {
     const [scoreChange, setScoreChange] = useState({});
     
     useEffect(() => {
-        axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations?status=pendiente')
+        axios.get('http://localhost:8000/api/reservations?status=pendiente')
             .then(response => {
                 setReservasPendientes(response.data);
             });
     }, []);
 
     const handleAceptar = (id, score) => {
-      axios.put(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/accept`, { status: 'aceptado', score })
+      axios.put(`http://localhost:8000/api/reservations/${id}/accept`, { status: 'aceptado', score })
           .then(response => {
               console.log('Reserva aceptada:', response.data);
               Swal.fire(
@@ -39,7 +39,7 @@ const GestionReservas = () => {
     };
     
     const handleRechazar = (id, score) => {
-      axios.put(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/cancel`, { status: 'rechazado', score })
+      axios.put(`http://localhost:8000/api/reservations/${id}/cancel`, { status: 'rechazado', score })
           .then(response => {
               console.log('Reserva rechazada:', response.data);
               Swal.fire(
@@ -62,7 +62,7 @@ const GestionReservas = () => {
         console.error('newScore es undefined');
         return;
     }
-    fetch(`https://jessica.v2.proyectosdwa.es/public/api/reservations/${id}/score`, {
+    fetch(`http://localhost:8000/api/reservations/${id}/score`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -89,32 +89,31 @@ const GestionReservas = () => {
     });
   }
 
-    const getAceptadas = () => {
-        if (!mostrarAceptadas) {
-            axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations/aceptadas')
-                .then(response => {
-                    setReservasAceptadas(response.data);
-                    setMostrarAceptadas(true);
-                });
-        } else {
-            setReservasAceptadas([]);
-            setMostrarAceptadas(false);
-        }
-    };
+  const getAceptadas = () => {
+    if (!mostrarAceptadas) {
+        axios.get('http://localhost:8000/api/reservations?status=aceptado')
+            .then(response => {
+                setReservasAceptadas(response.data);
+                setMostrarAceptadas(true);
+            });
+    } else {
+        setReservasAceptadas([]);
+        setMostrarAceptadas(false);
+    }
+};
 
-    const getRechazadas = () => {
-        if (!mostrarRechazadas) {
-            axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations/rechazadas')
-                .then(response => {
-                  //console.log(response.data);
-                    setReservasRechazadas(response.data);
-                    setMostrarRechazadas(true);
-                });
-        } else {
-            setReservasRechazadas([]);
-            setMostrarRechazadas(false);
-        }
-    };
+const getRechazadas = () => {
+    if (!mostrarRechazadas) {
+        axios.get('http://localhost:8000/api/reservations?status=cancelado')
+            .then(response => {
+                setReservasRechazadas(response.data);
+                setMostrarRechazadas(true);
+            });
+    } else {
+        setReservasRechazadas([]);
+        setMostrarRechazadas(false);
+    }
+};
 
     let reservasFiltradas = [...reservasPendientes];
 

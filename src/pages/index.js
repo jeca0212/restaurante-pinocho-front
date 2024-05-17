@@ -15,7 +15,7 @@ import { MasonryGallery } from "@/components/gallery";
     <Layout>      
     <HeroSlider/>
     <div className={stylesIndex.container}>
-      <Link href="/carta" className={styles.button}> <span className={styles.firstbutton}>Ver carta</span> </Link>
+      <Link href="/carta"  className={`${styles.button} ${styles.firstbutton}`}>Ver carta </Link>
       <Link href="/menus" className={styles.button}>Ver menús</Link>
       <Link href="/ofertas" className={styles.button}>Ver ofertas</Link>
     </div>

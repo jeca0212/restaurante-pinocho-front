@@ -27,7 +27,7 @@ export const NavbarDashboard = () => {
               <Link className={styles.navLink} href="/gestionReservas">Gestion de reservas</Link>
             </li>
             <li className={styles.navItem}>
-              <Link className={styles.navLink} href="/ofertas">Ofertas</Link>
+              <Link className={styles.navLink} href="/gestionofertas">Ofertas</Link>
             </li>
             <li className={styles.navItem}>
               <Link className={styles.navLink} href="/menusycarta">Gestion de carta</Link>

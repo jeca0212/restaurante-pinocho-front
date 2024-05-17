@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import Swal from 'sweetalert2';
-import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import styles from './reservas.module.css'
 import stylesReservas from './reservasimg.module.css'
 
 const ReservasPage = () => {
-  const router = useRouter();
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -32,18 +30,41 @@ const ReservasPage = () => {
     setStep(2);
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  // const checkScore = async (phone, email) => {
+  //   try {
+  //     const response = await Axios.get(`http://localhost:8000/api/checkScore/${phone}/${email}`);
+  //     if (response.status === 200) {
+  //       return response.data;
+  //     } else {
+  //       console.error('Hubo un problema al comprobar la puntuación:', response.status);
+  //       return { canReserve: false };
+  //     }
+  //   } catch (error) {
+  //     console.error('Hubo un problema al comprobar la puntuación:', error);
+  //     return { canReserve: false };
+  //   }
+  // };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    // const checkScoreResponse = await checkScore(formData.phone, formData.email);
+    // const canReserve = checkScoreResponse.canReserve;
+  
+    // if (!canReserve) {
+    //   Swal.fire(
+    //     'Lo sentimos',
+    //     'No cumples con los requisitos para hacer una reserva.',
+    //     'error'
+    //   );
+    //   return;
+    // }
 
     const fetchReservations = async () => {
-      const token = localStorage.getItem('access_token');
       try {
-        const response = await Axios.get('https://jessica.v2.proyectosdwa.es/public/api/reservations', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          },
-          withCredentials: true
-        });
+        const response = await Axios.get('http://localhost:8000/api/reservations');
         const espacioDisponible = response.data.espacioDisponible;
         if (espacioDisponible <= 0) {
           setIsAvailable(false);
@@ -94,17 +115,8 @@ const ReservasPage = () => {
   };
 
   const createReservation = async (data) => {
-    // Recuperar el token del almacenamiento local
-    const token = localStorage.getItem('access_token');
-    
-  
     try {
-      const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/reservations', data, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        withCredentials: true
-      });
+      const response = await Axios.post('http://localhost:8000/api/reservations', data);
       console.log(response.data);
       // Comprobar si la reserva se creó con éxito
       if (response.data.message === 'Reservation successfully created.') {
@@ -130,27 +142,6 @@ const ReservasPage = () => {
           icon: 'error',
         });
       }
-    }
-  };
-
-  const handleLogout = async (e) => {
-    e.stopPropagation();
-    const token = localStorage.getItem('access_token');
-    //console.warn(token); // Imprime el token para asegurarte de que se está obteniendo correctamente
-    try {
-        const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/logout', {}, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        if (response.status === 200) {
-            localStorage.removeItem('access_token');
-            router.push('/');
-        } else {
-            console.error('La respuesta de la API fue exitosa, pero el cierre de sesión no se realizó correctamente');
-        }
-    } catch (error) {
-        console.error('Hubo un error durante el cierre de sesión:', error);
     }
   };
   
@@ -290,9 +281,9 @@ const ReservasPage = () => {
             )}
             
           </form>
-          <div className={styles.registerButtonContainer}>
+          {/* <div className={styles.registerButtonContainer}>
           <button onClick={handleLogout} className={styles.registerButton}>Cerrar Sesión</button>
-          </div>
+          </div> */}
         </div>
       </Layout>
     );

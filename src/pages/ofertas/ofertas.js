@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react';
 import styles from "./ofertas.module.css";
+import axios from 'axios';
 
-const Oferts= () => {  
+const Oferts = () => {
+  const [parrafos, setParrafos] = useState([]);
+  const [imagen, setImagen] = useState(null);
+
+   
+  useEffect(() => {
+    fetch('http://localhost:8000/api/parrafos')
+      .then(response => response.json())
+      .then(data => {
+        setParrafos(data);
+  
+        // Asume que el primer párrafo tiene una propiedad 'id'
+        
+      });
+  }, []);
+  useEffect(() => {
+    const obtenerImagen = async () => {
+        try {
+            const res = await axios.get('http://localhost:8000/api/get-image');
+            setImagen(res.data.image);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    obtenerImagen();
+}, []);
+
   return (
     <>
     <div className={styles.container}>
@@ -29,7 +58,7 @@ const Oferts= () => {
       <div className={styles.content}>
         <div className={styles.row}>
           <img
-            src="/img/ofertas/desayunar-zaragoza.webp"
+             src="/img/ofertas/desayunar-zaragoza.webp"
             alt="Imagen Descriptiva 1"
             className={styles.image}
           />
@@ -43,33 +72,20 @@ const Oferts= () => {
           </div>
         </div>
         <div className={`${styles.row} ${styles.reverse}`}>
-          <img
-            src="/img/ofertas/principal.jpg"
-            alt="Imagen Descriptiva 2"
-            className={styles.image}
-          />
+          
+           {imagen && <img src={imagen}  className={styles.image} alt="Imagen de oferta" />}
+           
+          
           <div className={styles.text}>
-          <h2  className={styles.h2}>Plato del día</h2>
-          <h3>Acompañamientos</h3>
-            <p className={styles.textcol}>
-             Ensalada
-            </p>
-            <p className={styles.textcol}>
-             Macarrones con tomate y queso
-            </p>
-            <p className={styles.textcol}>
-             Caldo
-            </p>
+            <h2 className={styles.h2}>Plato del día</h2>
+            <h3>Acompañamientos</h3>
+            {parrafos.filter((_, index) => index < 3).map(parrafo => (
+              <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
+            ))}
             <h3>Principales</h3>
-            <p className={styles.textcol}>
-             Ensalada
-            </p>
-            <p className={styles.textcol}>
-             Macarrones con tomate y queso
-            </p>
-            <p className={styles.textcol}>
-             Caldo
-            </p>
+            {parrafos.filter((_, index) => index >= 3 && index < 6).map(parrafo => (
+              <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
+            ))}
           
           </div>
         </div>

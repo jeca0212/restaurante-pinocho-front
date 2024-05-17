@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top:10% ;
+}
+
+.columna {
+    flex: 1;
+    margin: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #FEC73A;
+    border-radius: 20px; 
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding-top: 40%;     
+    }
+    .columna{
+        align-items: center;
+        margin: 0 0 40px 0;
+    }
+}
+
+.button {
+    background-color: #FEC73A;
+    color: #000; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* cursor de mano al pasar el ratón */
+    border-radius: 12px; /* bordes redondeados */
+    transition-duration: 0.4s; /* efecto de transición al pasar el ratón */
+}
+
+.button:hover {
+    background-color: #FEC73A; /* color dorado oscuro al pasar el ratón */
+    color: white;
+}

@@ -25,7 +25,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post('https://jessica.v2.proyectosdwa.es/public/api/login', formData);
+      const response = await Axios.post('http://localhost:8000/api/login', formData);
       if (response.data.success) {
         const token = response.data.access_token;
         if (token) {
