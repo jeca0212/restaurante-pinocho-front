@@ -8,7 +8,7 @@ const Oferts = () => {
 
    
   useEffect(() => {
-    fetch('http://localhost:8000/api/parrafos')
+    fetch('https://api.restaurantepinochozaragoza.es/api/parrafos')
       .then(response => response.json())
       .then(data => {
         setParrafos(data);
@@ -20,7 +20,7 @@ const Oferts = () => {
   useEffect(() => {
     const obtenerImagen = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/get-image');
+            const res = await axios.get('https://api.restaurantepinochozaragoza.es/api/get-image');
             setImagen(res.data.image);
         } catch (err) {
             console.error(err);

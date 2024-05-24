@@ -80,7 +80,7 @@ const ReservasPage = () => {
 
     const fetchReservations = async () => {
       try {
-        const response = await Axios.get('http://localhost:8000/api/reservations');
+        const response = await Axios.get('https://api.restaurantepinochozaragoza.es/api/reservations');
         const espacioDisponible = response.data.espacioDisponible;
         if (espacioDisponible <= 0) {
           setIsAvailable(false);

@@ -11,7 +11,7 @@ const ReservationCancel = () => {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:8000/api/reservations/${id}`)
+      fetch(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}`)
         .then(response => response.json())
         .then(data => setReservation(data))
         .catch(error => console.error('Error:', error));
@@ -38,7 +38,7 @@ const ReservationCancel = () => {
     });
 
     if (result.isConfirmed) {
-      const response = await fetch(`http://localhost:8000/api/reservations/${id}/cancelByClient`, {
+      const response = await fetch(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/cancelByClient`, {
         method: 'POST',
       });
 

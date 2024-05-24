@@ -62,27 +62,27 @@ export default function Home() {
            
         <div className={styles.item}>
           <h2>Subir menú 20</h2>
-          <UploadForm route="http://localhost:8000/api/upload/menu20" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/menu20" />
         </div>
         <div className={styles.item}>
           <h2>Subir menú grupo</h2>
-          <UploadForm route="http://localhost:8000/api/upload/menugrupo" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/menugrupo" />
         </div>
         <div className={styles.item}>
           <h2>Subir menú infantil</h2>
-          <UploadForm route="http://localhost:8000/api/upload/menuinfantil" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/menuinfantil" />
         </div>
         <div className={styles.item}>
           <h2>Subir raciones</h2>
-          <UploadForm route="http://localhost:8000/api/upload/raciones" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/raciones" />
         </div>
         <div className={styles.item}>
           <h2>Subir tapas</h2>
-          <UploadForm route="http://localhost:8000/api/upload/tapas" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/tapas" />
         </div>
         <div className={styles.item}>
           <h2>Subir postres</h2>
-          <UploadForm route="http://localhost:8000/api/upload/postres" />
+          <UploadForm route="https://api.restaurantepinochozaragoza.es/api/upload/postres" />
         </div>
       </div>
       </div>

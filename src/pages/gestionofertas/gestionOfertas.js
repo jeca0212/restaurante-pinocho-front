@@ -20,7 +20,7 @@ function Ofertaspinocho() {
       formData.append('image', imagen);
   
       try {
-          const res = await axios.post('http://localhost:8000/api/update-image', formData);
+          const res = await axios.post('https://api.restaurantepinochozaragoza.es/api/update-image', formData);
   
           if (res.status === 200) {
               Swal.fire(
@@ -41,7 +41,7 @@ function Ofertaspinocho() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/parrafos')
+    fetch('https://api.restaurantepinochozaragoza.es/api/parrafos')
       .then(response => response.json())
       .then(data => setParrafos(data));
   }, []);
@@ -55,7 +55,7 @@ function Ofertaspinocho() {
   };
 
   const handleSave = (id) => {
-    fetch(`http://localhost:8000/api/parrafos/${id}`, {
+    fetch(`https://api.restaurantepinochozaragoza.es/api/parrafos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ contenido: nuevoContenido })
