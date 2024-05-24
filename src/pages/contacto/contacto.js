@@ -30,28 +30,34 @@ const ContactForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
     
-        const response = await axios({
-            method: 'post',
-            url: 'https://api.restaurantepinochozaragoza.es/api/contact',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: {
-                name: name,
-                email: email,
-                message: subject,
-            }
-        });
+        try {
+            const response = await axios({
+                method: 'post',
+                url: 'https://api.restaurantepinochozaragoza.es/api/contact',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: {
+                    name: name,
+                    email: email,
+                    message: subject,
+                }
+            });
     
-
-
-        if (response.ok) {
-            Swal.fire(
-                'Enviado',
-                'Tu mensaje ha sido enviado correctamente',
-                'success'
-            );
-        } else {
+            if (response.status >= 200 && response.status < 300) {
+                Swal.fire(
+                    'Enviado',
+                    'Tu mensaje ha sido enviado correctamente',
+                    'success'
+                );
+            } else {
+                Swal.fire(
+                    'Error',
+                    'Hubo un problema al enviar tu mensaje',
+                    'error'
+                );
+            }
+        } catch (error) {
             Swal.fire(
                 'Error',
                 'Hubo un problema al enviar tu mensaje',
