@@ -22,6 +22,8 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/pinocho.png" type="image/png"/>
         <title>Restaurante Pinocho | Zaragoza</title>
         <meta name="description" content="¡Descubre la auténtica cocina mediterránea en Restaurante Pinocho, calle San Rafael 27, Delicias, Zaragoza! ¡Haz tu reserva y déjate sorprender!" />
+        <meta name="keywords" content="restaurante, pinocho, zaragoza, cocina, mediterranea" />
+        <meta name="robots" content="index, follow"/>
       </Head>
       
     <div className={styles.container}>
