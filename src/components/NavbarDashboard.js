@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from './NavbarDashboard.module.css'; 
+import Head from "next/head";
 
 
 export const NavbarDashboard = () => {
