@@ -34,8 +34,6 @@ const ReservasPage = () => {
     colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
   };
 
-  const [isAvailable, setIsAvailable] = useState(true);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -46,61 +44,28 @@ const ReservasPage = () => {
     setStep(2);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  // const checkScore = async (phone, email) => {
-  //   try {
-  //     const response = await Axios.get(`http://localhost:8000/api/checkScore/${phone}/${email}`);
-  //     if (response.status === 200) {
-  //       return response.data;
-  //     } else {
-  //       console.error('Hubo un problema al comprobar la puntuación:', response.status);
-  //       return { canReserve: false };
-  //     }
-  //   } catch (error) {
-  //     console.error('Hubo un problema al comprobar la puntuación:', error);
-  //     return { canReserve: false };
-  //   }
-  // };
-  
+  const fetchReservations = async () => {
+    try {
+      const response = await Axios.get('https://api.restaurantepinochozaragoza.es/api/reservations');
+      const espacioDisponible = response.data.espacioDisponible;
+      if (espacioDisponible <= 0) {
+        return false;
+      }
+    } catch (error) {
+      Swal.fire(
+        'Error',
+        'Hubo un error al comprobar la disponibilidad. Por favor, inténtelo de nuevo más tarde.',
+        'error'
+      );
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // const checkScoreResponse = await checkScore(formData.phone, formData.email);
-    // const canReserve = checkScoreResponse.canReserve;
-  
-    // if (!canReserve) {
-    //   Swal.fire(
-    //     'Lo sentimos',
-    //     'No cumples con los requisitos para hacer una reserva.',
-    //     'error'
-    //   );
-    //   return;
-    // }
 
-    const fetchReservations = async () => {
-      try {
-        const response = await Axios.get('https://api.restaurantepinochozaragoza.es/api/reservations');
-        const espacioDisponible = response.data.espacioDisponible;
-        if (espacioDisponible <= 0) {
-          setIsAvailable(false);
-          Swal.fire(
-            'Estamos completos',
-            'Por ahora no aceptamos más reservas, gracias y hasta pronto.'
-          );
-          return;
-        }
-      } catch (error) {
-        Swal.fire(
-          'Error',
-          'Hubo un error al comprobar la disponibilidad. Por favor, inténtelo de nuevo más tarde.',
-          'error'
-        );
-        return;
-      }
-    };
-
-    await fetchReservations();
+    const isAvailable = await fetchReservations();
 
     if (!isAvailable) {
       Swal.fire(
