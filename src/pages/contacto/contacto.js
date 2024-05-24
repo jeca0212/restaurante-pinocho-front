@@ -29,19 +29,20 @@ const ContactForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const response = await fetch('https://api.restaurantepinochozaragoza.es/api/contact', {
-            method: 'POST',
+    
+        const response = await axios({
+            method: 'post',
+            url: 'https://api.restaurantepinochozaragoza.es/api/contact',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
+            data: {
                 name: name,
                 email: email,
                 message: subject,
-        
-            }),
+            }
         });
+    
 
 
         if (response.ok) {
