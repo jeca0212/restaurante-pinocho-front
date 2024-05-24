@@ -4,9 +4,11 @@ import Swal from 'sweetalert2';
 import Layout from '@/components/Layout';
 import styles from './reservas.module.css'
 import stylesReservas from './reservasimg.module.css'
+import Confetti from 'react-dom-confetti';
 
 const ReservasPage = () => {
   const [step, setStep] = useState(1);
+  const [confetti, setConfetti] = useState(false);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -17,6 +19,20 @@ const ReservasPage = () => {
     time: '',
     allergies: ''
   });
+
+  const config = { // Configuración del confeti
+    angle: 90,
+    spread: 360,
+    startVelocity: 20,
+    elementCount: 70,
+    dragFriction: 0.12,
+    duration: 3000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  };
 
   const [isAvailable, setIsAvailable] = useState(true);
 
@@ -116,7 +132,7 @@ const ReservasPage = () => {
 
   const createReservation = async (data) => {
     try {
-      const response = await Axios.post('http://localhost:8000/api/reservations', data);
+      const response = await Axios.post('https://api.restaurantepinochozaragoza.es/api/reservations', data);
       console.log(response.data);
       // Comprobar si la reserva se creó con éxito
       if (response.data.message === 'Reservation successfully created.') {
@@ -125,6 +141,8 @@ const ReservasPage = () => {
           'Hemos enviado un correo electrónico con los detalles de tu reserva.',
           'success'
         );
+        setConfetti(true); // Activar el confeti
+        setTimeout(() => setConfetti(false), 3000);
       } else {
         throw new Error('La reserva no se creó con éxito.');
       }
@@ -275,7 +293,8 @@ const ReservasPage = () => {
               ></textarea>
             </div>
             {isAvailable ? (
-              <button type="submit" className={styles.loginButton}>Reservar</button>
+              <><button type="submit" className={styles.loginButton}>Reservar</button>
+              <Confetti active={confetti} config={config} /></>
             ) : (
               <button type="submit" disabled className={styles.loginButton}>Todo reservado</button>
             )}
