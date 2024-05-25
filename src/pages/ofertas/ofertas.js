@@ -19,16 +19,20 @@ const Oferts = () => {
   }, []);
   useEffect(() => {
     const obtenerImagen = async () => {
-        try {
-            const res = await axios.get('https://api.restaurantepinochozaragoza.es/api/get-image');
-            setImagen(res.data.image);
-        } catch (err) {
-            console.error(err);
+      try {
+        const res = await axios.get('https://api.restaurantepinochozaragoza.es/api/get-image');
+        if (res.data) {
+          setImagen(res.data.image);
+        } else {
+          console.log('res.data no está definido');
         }
+      } catch (err) {
+        console.error(err);
+      }
     };
-
+  
     obtenerImagen();
-}, []);
+  }, []);
 
   return (
     <>
