@@ -106,11 +106,20 @@ const ReservasPage = () => {
   };
 
   const createReservation = async (data) => {
+    Swal.fire({
+      title: 'Creando reserva...',
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+      allowOutsideClick: false, // Evita que el usuario cierre el SweetAlert haciendo clic fuera
+    });
+
     try {
       const response = await Axios.post('https://api.restaurantepinochozaragoza.es/api/reservations', data);
       console.log(response.data);
       // Comprobar si la reserva se creó con éxito
       if (response.data.message === 'Reservation successfully created.') {
+        Swal.close();
         Swal.fire(
           '¡Reserva confirmada!',
           'Hemos enviado un correo electrónico con los detalles de tu reserva.',
