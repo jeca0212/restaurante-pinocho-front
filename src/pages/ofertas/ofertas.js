@@ -86,7 +86,7 @@ const Oferts = () => {
             {parrafos.filter((_, index) => index >= 3 && index < 6).map(parrafo => (
               <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
             ))}
-          
+          <spam className={styles.precio}>Todos los días tu plato del día por 9,90€. También puedes disfrutar de solo el plato principal por 7,00€ </spam>
           </div>
         </div>
     </div>

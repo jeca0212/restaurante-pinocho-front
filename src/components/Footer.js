@@ -19,10 +19,10 @@ export const Footer = ()=>{
 
     <footer className={stylesFooter.footer}>
       <div className={stylesFooter.column}>
-        <div><Link className={stylesFooter.Link} href="/aviso-legal">Aviso Legal</Link>
+        <div><Link className={stylesFooter.Link} href="/avisoLegal">Aviso Legal</Link>
         </div>
         <div>
-        <Link className={stylesFooter.Link} href="/politica-de-cookies">Política de Cookies</Link>
+        <Link className={stylesFooter.Link} href="/politicaPrivacidad">Política de Privacidad</Link>
       </div>
       </div>
       <div className={stylesFooter.column}>
