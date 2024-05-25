@@ -20,7 +20,11 @@ function Ofertaspinocho() {
       formData.append('image', imagen);
   
       try {
-          const res = await axios.post('https://api.restaurantepinochozaragoza.es/api/update-image', formData);
+        const res = await axios.post('https://api.restaurantepinochozaragoza.es/api/update-image', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
   
           if (res.status === 200) {
               Swal.fire(
@@ -28,6 +32,7 @@ function Ofertaspinocho() {
                   'Imagen subida con éxito.',
                   'success'
               );
+              console.log(res.data.url);
           } else {
               throw new Error('Error al subir la imagen.');
           }
