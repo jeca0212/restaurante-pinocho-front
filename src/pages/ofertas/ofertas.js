@@ -22,8 +22,8 @@ const Oferts = () => {
       try {
         const res = await axios.get('https://api.restaurantepinochozaragoza.es/api/get-image');
         console.log(res.data); // Imprime toda la respuesta
-        if (res.data && res.data.image) {
-          setImagen(res.data.image);
+        if (res.data && res.data.url) {
+          setImagen(res.data.url);
         } else {
           console.log('res.data o res.data.image no está definido');
         }
