@@ -77,7 +77,7 @@ const Oferts = () => {
         </div>
         <div className={`${styles.row} ${styles.reverse}`}>
           
-           {imagen && <img src={imagen}  className={styles.image} alt="Imagen de oferta" />}
+        {imagen && <img src={`https://api.restaurantepinochozaragoza.es/app/storage/${imagen}`} className={styles.image} alt="Imagen de oferta" />}
            
           
           <div className={styles.text}>
