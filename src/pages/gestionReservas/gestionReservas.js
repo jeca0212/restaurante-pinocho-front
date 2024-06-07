@@ -52,20 +52,28 @@ const GestionReservas = () => {
           });
   };
 
-    const getAceptadas = () => {
-        axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=aceptado')
-            .then(response => {
-                setReservasAceptadas(response.data);
-                setMostrarAceptadas(true);
-            });
-    };
-
-    const getRechazadas = () => {
-        axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=rechazado')
-            .then(response => {
-                setReservasRechazadas(response.data);
-                setMostrarRechazadas(true);
-            });
+  const getAceptadas = () => {
+    if (reservasAceptadas.length > 0) {
+      setMostrarAceptadas(!mostrarAceptadas);
+    } else {
+      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=aceptado')
+        .then(response => {
+          setReservasAceptadas(response.data);
+          setMostrarAceptadas(true);
+        });
+    }
+  };
+  
+  const getRechazadas = () => {
+    if (reservasRechazadas.length > 0) {
+      setMostrarRechazadas(!mostrarRechazadas);
+    } else {
+      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=rechazado')
+        .then(response => {
+          setReservasRechazadas(response.data);
+          setMostrarRechazadas(true);
+        });
+    }
     };
 
     return (
