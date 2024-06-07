@@ -90,53 +90,57 @@ const GestionReservas = () => {
       ))}
     </div>
 
-    <h1 className={Style.title}>Reservas aceptadas</h1>
-    <div className={Style.reservasContainer}>
-      {mostrarAceptadas && reservasAceptadas.map(reserva => (
-        <div key={reserva.id} className={Style.gestion}>
-          <p className={Style.text}>Nombre: {reserva.firstName}</p>
-          <p className={Style.text}>Personas: {reserva.people}</p>
-          <p className={Style.text}>Fecha: {reserva.date}</p>
-          <p className={Style.text}>Teléfono: {reserva.phone}</p>
-          <p className={Style.text}>Email: {reserva.email}</p>
-          <p className={Style.text}>Hora: {reserva.time}</p>
-          <p className={Style.text}>Alergias: {reserva.allergies}</p>
-          <p className={Style.text}>Puntos: {reserva.score}</p>
-          <div className={Style.containerButton}>
-            <input type="number" value={scoreChange[reserva.id] || ''} onChange={e => setScoreChange({...scoreChange, [reserva.id]: Number(e.target.value)})} />
-            <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <h1 className={Style.title}>Reservas rechazadas</h1>
-    <div className={Style.reservasContainer}>
-      {mostrarRechazadas && reservasRechazadas.map(reserva => (
-        <div key={reserva.id} className={Style.gestion}>
-          <p className={Style.text}>Nombre: {reserva.firstName}</p>
-          <p className={Style.text}>Personas: {reserva.people}</p>
-          <p className={Style.text}>Fecha: {reserva.date}</p>
-          <p className={Style.text}>Teléfono: {reserva.phone}</p>
-          <p className={Style.text}>Email: {reserva.email}</p>
-          <p className={Style.text}>Hora: {reserva.time}</p>
-          <p className={Style.text}>Alergias: {reserva.allergies}</p>
-          <p className={Style.text}>Puntos: {reserva.score}</p>
-          <div className={Style.containerButton}>
-            <input type="number" value={scoreChange[reserva.id] || ''} onChange={e => setScoreChange({...scoreChange, [reserva.id]: Number(e.target.value)})} />
-            <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div>
-      <div className={Style.ContainerButton}>
+    <div className={Style.ContainerButton}>
         <button className={Style.Button} onClick={getAceptadas}>{mostrarAceptadas ? 'Ocultar reservas aceptadas' : 'Mostrar reservas aceptadas'}</button>
         <button className={Style.Button} onClick={getRechazadas}>{mostrarRechazadas ? 'Ocultar reservas rechazadas' : 'Mostrar reservas rechazadas'}</button>
       </div>
+  
+      <div>
+        {mostrarAceptadas && (
+          <>
+            <h1 className={Style.title}>Reservas aceptadas</h1>
+            <div className={Style.reservasContainer}>
+              {reservasAceptadas.map(reserva => (
+                <div key={reserva.id} className={Style.gestion}>
+                   <p className={Style.text}>Nombre: {reserva.firstName}</p>
+          <p className={Style.text}>Personas: {reserva.people}</p>
+          <p className={Style.text}>Fecha: {reserva.date}</p>
+          <p className={Style.text}>Teléfono: {reserva.phone}</p>
+          <p className={Style.text}>Email: {reserva.email}</p>
+          <p className={Style.text}>Hora: {reserva.time}</p>
+          <p className={Style.text}>Alergias: {reserva.allergies}</p>
+          <p className={Style.text}>Puntos: {reserva.score}</p>
+                  <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+  
+        {mostrarRechazadas && (
+          <>
+            <h1 className={Style.title}>Reservas rechazadas</h1>
+            <div className={Style.reservasContainer}>
+              {reservasRechazadas.map(reserva => (
+                <div key={reserva.id} className={Style.gestion}>
+                   <p className={Style.text}>Personas: {reserva.people}</p>
+          <p className={Style.text}>Fecha: {reserva.date}</p>
+          <p className={Style.text}>Teléfono: {reserva.phone}</p>
+          <p className={Style.text}>Email: {reserva.email}</p>
+          <p className={Style.text}>Hora: {reserva.time}</p>
+          <p className={Style.text}>Alergias: {reserva.allergies}</p>
+          <p className={Style.text}>Puntos: {reserva.score}</p>
+                  <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
-  </div>
+
+
+  
 );
 };
 export default GestionReservas;
