@@ -33,9 +33,9 @@ const GestionReservas = () => {
           .catch(error => {
               console.error('Error al aceptar la reserva:', error);
           });
-    };
-    
-    const handleRechazar = (id, score) => {
+  };
+  
+  const handleRechazar = (id, score) => {
       axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/cancel`, { status: 'rechazado', score })
           .then(response => {
               console.log('Reserva rechazada:', response.data);
@@ -50,7 +50,7 @@ const GestionReservas = () => {
           .catch(error => {
               console.error('Error al rechazar la reserva:', error);
           });
-    };
+  };
 
     return (
       <div className={Style.gestionContainer}>
