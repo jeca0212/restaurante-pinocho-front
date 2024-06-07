@@ -10,70 +10,61 @@ const GestionReservas = () => {
     const [mostrarAceptadas, setMostrarAceptadas] = useState(false);
     const [mostrarRechazadas, setMostrarRechazadas] = useState(false);
     const [scoreChange, setScoreChange] = useState({});
-    
+
     useEffect(() => {
         axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=pendiente')
             .then(response => {
                 setReservasPendientes(response.data);
             });
-    }, [reservasAceptadas, reservasRechazadas]);
-    const getAceptadas = () => {
-      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=aceptado')
-          .then(response => {
-              setReservasAceptadas(response.data);
-              setMostrarAceptadas(prevState => !prevState);
-          })
-          .catch(error => {
-              console.error('Error al obtener las reservas aceptadas:', error);
-          });
-  };
-  
-  const getRechazadas = () => {
-      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=rechazado')
-          .then(response => {
-              setReservasRechazadas(response.data);
-              setMostrarRechazadas(prevState => !prevState);
-          })
-          .catch(error => {
-              console.error('Error al obtener las reservas rechazadas:', error);
-          });
-  }; 
+    }, []);
 
     const handleAceptar = (id, score) => {
-      axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/accept`, { status: 'aceptado', score })
-          .then(response => {
-              console.log('Reserva aceptada:', response.data);
-              Swal.fire(
-                '¡Éxito!',
-                'Reserva Aceptada con éxito',
-                'Recibirás un correo con la información de la reserva',
-              );
-              setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
-              setReservasAceptadas(prevReservas => [...prevReservas, response.data]);
-          })
-          .catch(error => {
-              console.error('Error al aceptar la reserva:', error);
-          });
-  };
-  
-  const handleRechazar = (id, score) => {
-      axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/cancel`, { status: 'rechazado', score })
-          .then(response => {
-              console.log('Reserva rechazada:', response.data);
-              Swal.fire(
-                '¡Éxito!',
-                'Reserva rechazada con éxito',
-                'Recibirás un correo con la información de la reserva',
-              );
-              setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
-              setReservasRechazadas(prevReservas => [...prevReservas, response.data]);
-          })
-          .catch(error => {
-              console.error('Error al rechazar la reserva:', error);
-          });
+        axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/accept`, { status: 'aceptado', score })
+            .then(response => {
+                console.log('Reserva aceptada:', response.data);
+                Swal.fire(
+                  '¡Éxito!',
+                  'Reserva Aceptada con éxito',
+                  'Recibirás un correo con la información de la reserva',
+                );
+                setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
+            })
+            .catch(error => {
+                console.error('Error al aceptar la reserva:', error);
+            });
+    };
 
-          
-  };
+    const handleRechazar = (id, score) => {
+        axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/cancel`, { status: 'rechazado', score })
+            .then(response => {
+                console.log('Reserva rechazada:', response.data);
+                Swal.fire(
+                  '¡Éxito!',
+                  'Reserva rechazada con éxito',
+                  'Recibirás un correo con la información de la reserva',
+                );
+                setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
+            })
+            .catch(error => {
+                console.error('Error al rechazar la reserva:', error);
+            });
+    };
+
+    const getAceptadas = () => {
+        axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=aceptado')
+            .then(response => {
+                setReservasAceptadas(response.data);
+                setMostrarAceptadas(true);
+            });
+    };
+
+    const getRechazadas = () => {
+        axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=rechazado')
+            .then(response => {
+                setReservasRechazadas(response.data);
+                setMostrarRechazadas(true);
+            });
+    };
 
     return (
       <div className={Style.gestionContainer}>
