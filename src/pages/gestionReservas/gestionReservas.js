@@ -17,6 +17,27 @@ const GestionReservas = () => {
                 setReservasPendientes(response.data);
             });
     }, [reservasAceptadas, reservasRechazadas]);
+    const getAceptadas = () => {
+      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=aceptado')
+          .then(response => {
+              setReservasAceptadas(response.data);
+              setMostrarAceptadas(prevState => !prevState);
+          })
+          .catch(error => {
+              console.error('Error al obtener las reservas aceptadas:', error);
+          });
+  };
+  
+  const getRechazadas = () => {
+      axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=rechazado')
+          .then(response => {
+              setReservasRechazadas(response.data);
+              setMostrarRechazadas(prevState => !prevState);
+          })
+          .catch(error => {
+              console.error('Error al obtener las reservas rechazadas:', error);
+          });
+  }; 
 
     const handleAceptar = (id, score) => {
       axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/accept`, { status: 'aceptado', score })
@@ -50,6 +71,8 @@ const GestionReservas = () => {
           .catch(error => {
               console.error('Error al rechazar la reserva:', error);
           });
+
+          
   };
 
     return (
