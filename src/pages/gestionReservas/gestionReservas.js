@@ -28,14 +28,14 @@ const GestionReservas = () => {
                 'Recibirás un correo con la información de la reserva',
               );
               setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
-              getAceptadas();
+              setReservasAceptadas(prevReservas => [...prevReservas, response.data]);
           })
           .catch(error => {
               console.error('Error al aceptar la reserva:', error);
           });
-  };
-  
-  const handleRechazar = (id) => {
+    };
+    
+    const handleRechazar = (id) => {
       axios.put(`https://api.restaurantepinochozaragoza.es/api/reservations/${id}/cancel`, { status: 'rechazado' })
           .then(response => {
               console.log('Reserva rechazada:', response.data);
@@ -45,12 +45,12 @@ const GestionReservas = () => {
                 'Recibirás un correo con la información de la reserva',
               );
               setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
-              getRechazadas();
+              setReservasRechazadas(prevReservas => [...prevReservas, response.data]);
           })
           .catch(error => {
               console.error('Error al rechazar la reserva:', error);
           });
-  };
+    };
 
   const getAceptadas = () => {
     if (reservasAceptadas.length > 0) {
@@ -74,8 +74,40 @@ const GestionReservas = () => {
           setMostrarRechazadas(true);
         });
     }
+    
     };
-
+    const handleGuardarScore = (id) => {
+      const newScore = scoreChange[id];
+      if (newScore === undefined) {
+          console.error('newScore es undefined');
+          return;
+      }
+      fetch(`http://localhost:8000/api/reservations/${id}/score`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ score: newScore }),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Score actualizado:', data);
+        Swal.fire(
+          '¡Éxito!',
+          'Puntuación cambiada con éxito',
+          'success'
+        );
+        
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
     return (
       <div className={Style.gestionContainer}>
     <h1 className={Style.title}>Reservas pendientes</h1>
@@ -118,7 +150,8 @@ const GestionReservas = () => {
           <p className={Style.text}>Hora: {reserva.time}</p>
           <p className={Style.text}>Alergias: {reserva.allergies}</p>
           <p className={Style.text}>Puntos: {reserva.score}</p>
-                  <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
+          
+          <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
                 </div>
               ))}
             </div>
