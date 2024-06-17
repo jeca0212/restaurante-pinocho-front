@@ -131,7 +131,7 @@ if (mostrarRechazadas) {
         <h1 className={Style.title}>Reservas pendientes</h1>
     <div className={Style.reservasContainer}>
       
-    {reservasFiltradas.map(reserva => (
+    {reservasFiltradas.filter(reserva => reserva.status === 'pendiente').map(reserva => (
   <div key={reserva.id} className={Style.gestion}>
     <p className={Style.text}>Nombre: {reserva.firstName}</p>
     <p className={Style.text}>Personas: {reserva.people}</p>
