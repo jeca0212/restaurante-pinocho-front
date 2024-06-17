@@ -29,6 +29,7 @@ const GestionReservas = () => {
               );
               setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
               setReservasAceptadas(prevReservas => [...prevReservas, response.data]);
+              setMostrarAceptadas(false); // Añade esta línea
           })
           .catch(error => {
               console.error('Error al aceptar la reserva:', error);
@@ -46,6 +47,7 @@ const GestionReservas = () => {
               );
               setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
               setReservasRechazadas(prevReservas => [...prevReservas, response.data]);
+              setMostrarRechazadas(false); // Añade esta línea
           })
           .catch(error => {
               console.error('Error al rechazar la reserva:', error);
@@ -150,7 +152,7 @@ const GestionReservas = () => {
           <p className={Style.text}>Hora: {reserva.time}</p>
           <p className={Style.text}>Alergias: {reserva.allergies}</p>
           <p className={Style.text}>Puntos: {reserva.score}</p>
-          
+          <input type="number" value={scoreChange[reserva.id] || ''} onChange={e => setScoreChange({...scoreChange, [reserva.id]: Number(e.target.value)})} />
           <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
                 </div>
               ))}
@@ -171,6 +173,7 @@ const GestionReservas = () => {
           <p className={Style.text}>Hora: {reserva.time}</p>
           <p className={Style.text}>Alergias: {reserva.allergies}</p>
           <p className={Style.text}>Puntos: {reserva.score}</p>
+          <input type="number" value={scoreChange[reserva.id] || ''} onChange={e => setScoreChange({...scoreChange, [reserva.id]: Number(e.target.value)})} />
                   <button onClick={() => handleGuardarScore(reserva.id)}>Guardar</button>
                 </div>
               ))}
