@@ -27,9 +27,9 @@ const GestionReservas = () => {
                 'Reserva Aceptada con éxito',
                 'Recibirás un correo con la información de la reserva',
               );
-              setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
+              setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
               setReservasAceptadas(prevReservas => [...prevReservas, response.data]);
-              setMostrarAceptadas(false); // Añade esta línea
+              setMostrarAceptadas(false);
           })
           .catch(error => {
               console.error('Error al aceptar la reserva:', error);
@@ -45,9 +45,9 @@ const GestionReservas = () => {
                 'Reserva rechazada con éxito',
                 'Recibirás un correo con la información de la reserva',
               );
-              setReservasPendientes(reservasPendientes.filter(reserva => reserva.id !== id));
+              setReservasPendientes(prevReservas => prevReservas.filter(reserva => reserva.id !== id));
               setReservasRechazadas(prevReservas => [...prevReservas, response.data]);
-              setMostrarRechazadas(false); // Añade esta línea
+              setMostrarRechazadas(false);
           })
           .catch(error => {
               console.error('Error al rechazar la reserva:', error);
