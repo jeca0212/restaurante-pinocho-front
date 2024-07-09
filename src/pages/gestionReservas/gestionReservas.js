@@ -134,7 +134,16 @@ if (mostrarAceptadas) {
 if (mostrarRechazadas) {
     reservasFiltradas = [...reservasFiltradas, ...reservasRechazadas];
 }
-   
+const detallesReserva = [
+  { etiqueta: 'Nombre', valor: reserva.firstName },
+  { etiqueta: 'Personas', valor: reserva.people },
+  { etiqueta: 'Fecha', valor: reserva.date },
+  { etiqueta: 'Teléfono', valor: reserva.phone },
+  { etiqueta: 'Email', valor: reserva.email },
+  { etiqueta: 'Hora', valor: reserva.time },
+  { etiqueta: 'Alergias', valor: reserva.allergies },
+  { etiqueta: 'Puntos', valor: reserva.score },
+];
 
     return (
       <div className={Style.gestionContainer}>
@@ -177,11 +186,11 @@ if (mostrarRechazadas) {
       <button onClick={searchReservations}>Buscar</button>
       {reservations.length > 0 && (
         <div>
-          {reservations.map((reservation) => (
-            <div key={reservation.id}>
-              {reservation.email} - {reservation.date}
-            </div>
-          ))}
+         {detallesReserva.map((detalle) => (
+      <p className={Style.text} key={detalle.etiqueta}>
+        {detalle.etiqueta}: {detalle.valor}
+      </p>
+    ))}
         </div>
       )}
     </div>
