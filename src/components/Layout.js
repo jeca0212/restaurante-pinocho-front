@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import styles from './Layout.module.css'; 
 import { useEffect } from "react";
 import Head from "next/head";
+import Swal from 'sweetalert2';
 
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -13,7 +14,14 @@ const Layout = ({ children }) => {
     // document.body.style.width = '100vw';
     // document.body.style.display = 'inline-block';
     //document.body.style.minHeight = '100vh'; 
+    Swal.fire({
+      title: 'Vacaciones',
+      text: 'El restaurante Pinocho estará cerrado por vacaciones del 12 de agosto al 8 de septiembre. ¡Nos vemos el 9 de septiembre en nuestro horario habitual!',
+      icon: 'info',
+      confirmButtonText: 'Entendido'
+    });
   }, []); 
+  
 
   return (
     <>   <Head>
