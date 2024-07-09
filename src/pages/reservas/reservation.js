@@ -62,7 +62,7 @@ const ReservasPage = () => {
     // Mostrar popup y detener ejecución si la fecha está en el rango de vacaciones
     Swal.fire(
       'Cerrado por vacaciones',
-      'No aceptamos reservas del 12 de agosto al 8 de septiembre de 2024. ¡Esperamos verte en otra fecha!',
+      'No aceptamos reservas del 12 de agosto al 8 de septiembre de 2024. ¡Esperamos verte a partir del 9 de septiembre!',
       'info'
     );
     return; // Detener la ejecución de la función
