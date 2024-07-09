@@ -200,8 +200,8 @@ if (mostrarRechazadas) {
 )}
         </div>
         <div className={Style.ContainerButton}>
-          <button className={Style.Button} onClick={getAceptadas}>{mostrarAceptadas ? 'Ocultar reservas aceptadas' : 'Mostrar reservas aceptadas'}</button>
-          <button className={Style.Button} onClick={getRechazadas}>{mostrarRechazadas ? 'Ocultar reservas rechazadas' : 'Mostrar reservas rechazadas'}</button>
+          {/* <button className={Style.Button} onClick={getAceptadas}>{mostrarAceptadas ? 'Ocultar reservas aceptadas' : 'Mostrar reservas aceptadas'}</button>
+          <button className={Style.Button} onClick={getRechazadas}>{mostrarRechazadas ? 'Ocultar reservas rechazadas' : 'Mostrar reservas rechazadas'}</button> */}
         </div>
       </div>
     </div>
