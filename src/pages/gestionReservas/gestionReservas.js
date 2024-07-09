@@ -134,16 +134,7 @@ if (mostrarAceptadas) {
 if (mostrarRechazadas) {
     reservasFiltradas = [...reservasFiltradas, ...reservasRechazadas];
 }
-const detallesReserva = [
-  { etiqueta: 'Nombre', valor: reserva.firstName },
-  { etiqueta: 'Personas', valor: reserva.people },
-  { etiqueta: 'Fecha', valor: reserva.date },
-  { etiqueta: 'Teléfono', valor: reserva.phone },
-  { etiqueta: 'Email', valor: reserva.email },
-  { etiqueta: 'Hora', valor: reserva.time },
-  { etiqueta: 'Alergias', valor: reserva.allergies },
-  { etiqueta: 'Puntos', valor: reserva.score },
-];
+
 
     return (
       <div className={Style.gestionContainer}>
