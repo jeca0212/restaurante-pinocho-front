@@ -11,6 +11,8 @@ const GestionReservas = () => {
     const [mostrarRechazadas, setMostrarRechazadas] = useState(false);
     const [reservas, setReservas] = useState([]);
     const [scoreChange, setScoreChange] = useState({});
+    const [searchDate, setSearchDate] = useState('');
+    const [reservations, setReservations] = useState([]);
     
     useEffect(() => {
         axios.get('https://api.restaurantepinochozaragoza.es/api/reservations?status=pendiente')
@@ -36,6 +38,14 @@ const GestionReservas = () => {
           .catch(error => {
               console.error('Error al aceptar la reserva:', error);
           });
+    };
+    const searchReservations = async () => {
+      try {
+        const response = await axios.get(`https://api.restaurantepinochozaragoza.es/api/reservations/search-by-date?date=${searchDate}`);
+        setReservations(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     
     const handleRechazar = (id, score) => {
@@ -157,6 +167,24 @@ if (mostrarRechazadas) {
 ))}
     </div>
     <div>
+    <div>
+      <input
+        value={searchDate}
+        onChange={(e) => setSearchDate(e.target.value)}
+        type="date"
+        placeholder="Buscar por fecha"
+      />
+      <button onClick={searchReservations}>Buscar</button>
+      {reservations.length > 0 && (
+        <div>
+          {reservations.map((reservation) => (
+            <div key={reservation.id}>
+              {reservation.email} - {reservation.date}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
           <div className={Style.ContainerButton}>
     <button className={Style.Button} onClick={getAceptadas}>{mostrarAceptadas ? 'Ocultar reservas aceptadas' : 'Mostrar reservas aceptadas'}</button>
     <button className={Style.Button} onClick={getRechazadas}>{mostrarRechazadas ? 'Ocultar reservas rechazadas' : 'Mostrar reservas rechazadas'}</button>
