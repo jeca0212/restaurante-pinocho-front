@@ -11,6 +11,16 @@
   width: 50%;
   margin-bottom: 5%;
 }
+.search{
+  background-color: #fec73a;
+  padding: 5px 50px;
+  margin-left: 20px;
+}
+
+.containerSearch{
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .reservasContainer {
     width: 100%;

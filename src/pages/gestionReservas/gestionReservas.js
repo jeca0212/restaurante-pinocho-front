@@ -166,16 +166,17 @@ if (mostrarRechazadas) {
         ))}
       </div>
       <div>
-        <div>
+        <div className={Style.containerSearch}>
           <input
             value={searchDate}
             onChange={(e) => setSearchDate(e.target.value)}
             type="date"
             placeholder="Buscar por fecha"
           />
-          <button onClick={searchReservations}>Buscar</button>
+          <button onClick={searchReservations} className={Style.search}>Buscar</button>
           {reservations.length > 0 && (
   <div>
+     <div className={Style.reservasContainer}>
     {reservations.map((reserva) => (
       <div key={reserva.id} className={Style.gestion}>
         <p className={Style.text}>Nombre: {reserva.firstName}</p>
@@ -194,6 +195,7 @@ if (mostrarRechazadas) {
             )}
       </div>
     ))}
+  </div>
   </div>
 )}
         </div>
