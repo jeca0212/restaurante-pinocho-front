@@ -175,14 +175,21 @@ if (mostrarRechazadas) {
           />
           <button onClick={searchReservations}>Buscar</button>
           {reservations.length > 0 && (
-            <div>
-              {detallesReserva.map((detalle) => (
-                <p className={Style.text} key={detalle.etiqueta}>
-                  {detalle.etiqueta}: {detalle.valor}
-                </p>
-              ))}
-            </div>
-          )}
+  <div>
+    {reservations.map((reserva) => (
+      <div key={reserva.id} className={Style.gestion}>
+        <p className={Style.text}>Nombre: {reserva.firstName}</p>
+        <p className={Style.text}>Personas: {reserva.people}</p>
+        <p className={Style.text}>Fecha: {reserva.date}</p>
+        <p className={Style.text}>Teléfono: {reserva.phone}</p>
+        <p className={Style.text}>Email: {reserva.email}</p>
+        <p className={Style.text}>Hora: {reserva.time}</p>
+        <p className={Style.text}>Alergias: {reserva.allergies}</p>
+        <p className={Style.text}>Puntos: {reserva.score}</p>
+      </div>
+    ))}
+  </div>
+)}
         </div>
         <div className={Style.ContainerButton}>
           <button className={Style.Button} onClick={getAceptadas}>{mostrarAceptadas ? 'Ocultar reservas aceptadas' : 'Mostrar reservas aceptadas'}</button>
