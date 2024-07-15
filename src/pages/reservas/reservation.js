@@ -57,6 +57,13 @@ const ReservasPage = () => {
   // Convertir la fecha seleccionada por el usuario a objeto Date
   const selectedDate = new Date(formData.date);
 
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+
+  // Comprobar si la fecha seleccionada es igual a la fecha actual
+  const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
+
+
   // Comprobar si la fecha seleccionada está dentro del rango de vacaciones
   if (selectedDate >= vacationStart && selectedDate <= vacationEnd) {
     // Mostrar popup y detener ejecución si la fecha está en el rango de vacaciones
@@ -67,6 +74,16 @@ const ReservasPage = () => {
     );
     return; // Detener la ejecución de la función
   }
+  // Comprobar si la reserva es para el mismo día y después de las 11 de la mañana
+  if (isSameDay && currentHour >= 11) {
+    Swal.fire(
+      'Reservas el mismo día',
+      'Las reservas para el mismo día solo se pueden hacer hasta las 11 de la mañana. Para cualquier consulta, llámanos al 659 19 62 12. ¡Gracias!',
+      'error'
+    );
+    return;
+  }
+
 
 
     const fetchReservations = async () => {
