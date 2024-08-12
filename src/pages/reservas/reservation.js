@@ -56,7 +56,8 @@ const ReservasPage = () => {
 
   // Convertir la fecha seleccionada por el usuario a objeto Date
   const selectedDate = new Date(formData.date);
-
+  
+    // Obtener la fecha y hora actuales
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
 
@@ -243,7 +244,7 @@ const ReservasPage = () => {
                   disabled={!isAvailable}
                 >
                   <option value="">Seleccione una hora</option>
-                  {Array.from({ length: 10 }, (_, index) => {
+                  {Array.from({ length: 9 }, (_, index) => {
                     const time = new Date(0, 0, 0, 13, 0 + 15 * index);
                     const timeString = time.toTimeString().substring(0, 5);
                     return (
