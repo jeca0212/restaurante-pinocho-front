@@ -81,7 +81,7 @@ const images = [
               href="/pdfs/navidad.pdf"
               download="navidad.pdf"
             >
-              Descargar menú Navidad
+              Descargar menú Día de Navidad
             </Link>
             <Link
               className={stylesOrange.button}
