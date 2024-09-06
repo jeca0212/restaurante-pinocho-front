@@ -59,6 +59,41 @@ const images = [
         </p>
       </div>
       <div className={stylesMenu.container}>
+      <div className={`${stylesMenu.row} ${stylesMenu.reverse}`}>
+          <img
+            src="/img/menu/especiales.webp"
+            alt="Imagen Descriptiva 2"
+            className={stylesMenu.image}
+          />
+          <div className={stylesMenu.text}>
+            <p className={stylesMenu.textcol}>
+            Descarga nuestros menús especiales, en Restaurante Pinocho queremos celebrar contigo los días más importantes del año, como el Día del Pilar y Nochevieja. ¡Haz tu reserva y disfruta de una experiencia única con nosotros! .{" "}
+            </p>
+            <Link
+              className={stylesOrange.button}
+              href="/pdfs/pilares.pdf"
+              download="pilares.pdf"
+            >
+              Descargar menú Día del pilar
+            </Link>
+            <Link
+              className={stylesOrange.button}
+              href="/pdfs/navidad.pdf"
+              download="navidad.pdf"
+            >
+              Descargar menú Navidad
+            </Link>
+            <Link
+              className={stylesOrange.button}
+              href="/pdfs/nochevieja.pdf"
+              download="nochevieja.pdf"
+            >
+              Descargar menú Noche vieja
+            </Link>
+          
+          </div>
+        </div>
+
         <div className={stylesMenu.row}>
           <img
             src="/img/menu/ternascozaragoza .webp"
