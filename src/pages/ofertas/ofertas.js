@@ -91,7 +91,7 @@ const Oferts = () => {
             {parrafos.filter((_, index) => index >= 3 && index < 6).map(parrafo => (
               <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
             ))}
-          <span className={styles.precio}>Todos los días tu menú del día por 12€. Incluye bebida, primero, segundo, postre y café. </span>
+          <span className={styles.precio}>Todos los días tu menú del día por 12€. Incluye bebida, primero, segundo, postre y café. Tambien puedes tomar un solo plato por 7€</span>
           </div>
         </div>
     </div>
