@@ -51,8 +51,8 @@ const ReservasPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
      // Convertir las fechas de inicio y fin de vacaciones a objetos Date
-  const vacationStart = new Date('2024-08-12');
-  const vacationEnd = new Date('2024-09-08');
+  //const vacationStart = new Date('2024-08-12');
+  //const vacationEnd = new Date('2024-09-08');
 
   // Convertir la fecha seleccionada por el usuario a objeto Date
   const selectedDate = new Date(formData.date);
@@ -66,15 +66,15 @@ const ReservasPage = () => {
 
 
   // Comprobar si la fecha seleccionada está dentro del rango de vacaciones
-  if (selectedDate >= vacationStart && selectedDate <= vacationEnd) {
+ // if (selectedDate >= vacationStart && selectedDate <= vacationEnd) {
     // Mostrar popup y detener ejecución si la fecha está en el rango de vacaciones
-    Swal.fire(
-      'Cerrado por vacaciones',
-      'No aceptamos reservas del 12 de agosto al 8 de septiembre de 2024. ¡Esperamos verte a partir del 9 de septiembre!',
-      'info'
-    );
-    return; // Detener la ejecución de la función
-  }
+   // Swal.fire(
+      //'Cerrado por vacaciones',
+      //'No aceptamos reservas del 12 de agosto al 8 de septiembre de 2024. ¡Esperamos verte a partir del 9 de septiembre!',
+      //'info'
+    //);
+    //return; // Detener la ejecución de la función
+  //}
   // Comprobar si la reserva es para el mismo día y después de las 11 de la mañana
   if (isSameDay && currentHour >= 11) {
     Swal.fire(
