@@ -11,7 +11,6 @@ const Oferts = () => {
     fetch('https://api.restaurantepinochozaragoza.es/api/parrafos')
       .then(response => response.json())
       .then(data => {
-        console.log(data())
         setParrafos(data);
   
         // Asume que el primer párrafo tiene una propiedad 'id'
