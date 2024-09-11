@@ -78,7 +78,11 @@ const Oferts = () => {
         </div>
         <div className={`${styles.row} ${styles.reverse}`}>
           
-        {imagen && <img src={imagen} className={styles.image} alt="Imagen de oferta" />}
+        <img
+             src="/img/ofertas/principal.jpg"
+            alt="Imagen Descriptiva 1"
+            className={styles.image}
+          />
            
           
           <div className={styles.text}>
