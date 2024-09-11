@@ -96,7 +96,7 @@ function Ofertaspinocho() {
     <div className={styles.columna}>
         <h2>Cambia el menú del día</h2>
         <h3>Primeros</h3>
-        {parrafos.slice(0, 3).map(parrafo => (
+        {parrafos.slice(0, 4).map(parrafo => (
             <div key={parrafo.id}>
                 {editando === parrafo.id ? (
                     <div>
@@ -117,7 +117,7 @@ function Ofertaspinocho() {
     <div className={styles.columna}>
     <h2>Cambia el menú del día</h2>
         <h3>Segundos</h3>
-        {parrafos.slice(3).map(parrafo => (
+        {parrafos.slice(4).map(parrafo => (
             <div key={parrafo.id}>
                 {editando === parrafo.id ? (
                     <div>
