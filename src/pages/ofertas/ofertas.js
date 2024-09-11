@@ -84,11 +84,11 @@ const Oferts = () => {
           <div className={styles.text}>
             <h2 className={styles.h2}>Menú del día</h2>
             <h3>Primeros</h3>
-            {parrafos.filter((_, index) => index < 3).map(parrafo => (
+            {parrafos.filter((_, index) => index < 4).map(parrafo => (
               <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
             ))}
             <h3>Segundos</h3>
-            {parrafos.filter((_, index) => index >= 3 && index < 6).map(parrafo => (
+            {parrafos.filter((_, index) => index >= 4 && index < 8).map(parrafo => (
               <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
             ))}
           <span className={styles.precio}>Todos los días tu menú del día por 12€. Incluye bebida, primero, segundo, postre y café. Tambien puedes tomar un solo plato por 7€</span>
