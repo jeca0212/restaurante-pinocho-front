@@ -149,6 +149,7 @@ if (mostrarRechazadas) {
             <p className={Style.text}>Email: {reserva.email}</p>
             <p className={Style.text}>Hora: {reserva.time}</p>
             <p className={Style.text}>Alergias: {reserva.allergies}</p>
+            <p className={Style.text}>Estado: {reserva.status}</p>
             <p className={Style.text}>Puntos: {reserva.score}</p>
             {reserva.status === 'pendiente' && (
               <div className={Style.ContainerButton}>
@@ -187,6 +188,7 @@ if (mostrarRechazadas) {
         <p className={Style.text}>Hora: {reserva.time}</p>
         <p className={Style.text}>Alergias: {reserva.allergies}</p>
         <p className={Style.text}>Puntos: {reserva.score}</p>
+   
         {(reserva.status === 'aceptado' || reserva.status === 'cancelado') && (
               <div className={Style.containerButton}>
                 <input type="number" value={scoreChange[reserva.id] || ''} onChange={e => setScoreChange({...scoreChange, [reserva.id]: Number(e.target.value)})} />
