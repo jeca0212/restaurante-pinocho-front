@@ -52,7 +52,7 @@ const ReservasPage = () => {
     e.preventDefault();
      // Convertir las fechas de inicio y fin de vacaciones a objetos Date
   const vacationStart = new Date('2025-08-11');
-  const vacationEnd = new Date('2025-08-029');
+  const vacationEnd = new Date('2025-08-29');
 
   // Convertir la fecha seleccionada por el usuario a objeto Date
   const selectedDate = new Date(formData.date);
