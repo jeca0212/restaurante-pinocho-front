@@ -72,7 +72,7 @@ const Oferts = () => {
             <p className={styles.textcol}>
             ¡Ven a desayunar en Restaurante Pinocho! Nuestra deliciosa selección de bizcochos recién horneados, tostadas crujientes, minis tentadores y croissants irresistibles harán que su mañana sea simplemente deliciosa. Y qué mejor manera de acompañar estos manjares que con una buena taza de café, un zumo de naranja exprimido al momento o una deliciosa infusión. Ya sea que estén buscando un desayuno rápido entre semana o quieran disfrutar de una agradable mañana de fin de semana, ¡nosotros tenemos todo lo que necesitan para comenzar el día con el pie derecho! ¡Los esperamos con los brazos abiertos en Restaurante Pinocho para una experiencia de desayuno que nunca olvidarán!
             </p>
-            <span className={styles.precio}>De Lunes a Viernes 3,10 euros, Sábados, Domingos y festivos 3,40 euros</span>
+            <span className={styles.precio}>De Lunes a Viernes 3,30 euros, Sábados, Domingos y festivos 3,60 euros</span>
            
           </div>
         </div>
@@ -95,7 +95,7 @@ const Oferts = () => {
             {parrafos.filter((_, index) => index >= 4 && index < 8).map(parrafo => (
               <p key={parrafo.id} className={styles.textcol}>{parrafo.contenido}</p>
             ))}
-          <span className={styles.precio}>Todos los días tu menú del día por 12,50€. Incluye bebida, primero, segundo, postre y café. Tambien puedes tomar un solo plato por 7€</span>
+          <span className={styles.precio}>Todos los días tu menú del día por 13€. Incluye bebida, primero, segundo, postre y café. Tambien puedes tomar un solo plato por 7,50€</span>
           </div>
         </div>
     </div>

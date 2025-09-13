@@ -15,12 +15,12 @@ const Layout = ({ children }) => {
     // document.body.style.display = 'inline-block';
     //document.body.style.minHeight = '100vh'; 
     //VACACIONES
-    Swal.fire({
-     title: 'Vacaciones',
-      text: 'El restaurante Pinocho estará cerrado por vacaciones del 11 al 29 de Agosto. ¡Nos vemos el 1 de septiembre en nuestro horario habitual!',
-     icon: 'info',
-      confirmButtonText: 'Entendido'
-     });
+  //  Swal.fire({
+    // title: 'Vacaciones',
+      //text: 'El restaurante Pinocho estará cerrado por vacaciones del 11 al 29 de Agosto. ¡Nos vemos el 1 de septiembre en nuestro horario habitual!',
+     //icon: 'info',
+      //confirmButtonText: 'Entendido'
+     //});
   }, []); 
   
 

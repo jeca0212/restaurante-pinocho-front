@@ -51,30 +51,30 @@ const ReservasPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
      // Convertir las fechas de inicio y fin de vacaciones a objetos Date
-  const vacationStart = new Date('2025-08-11');
-  const vacationEnd = new Date('2025-08-29');
+ // const vacationStart = new Date('2025-08-11');
+  //const vacationEnd = new Date('2025-08-29');
 
   // Convertir la fecha seleccionada por el usuario a objeto Date
-  const selectedDate = new Date(formData.date);
+ // const selectedDate = new Date(formData.date);
   
     // Obtener la fecha y hora actuales
-  const currentDate = new Date();
-  const currentHour = currentDate.getHours();
+ // const currentDate = new Date();
+  //const currentHour = currentDate.getHours();
 
   // Comprobar si la fecha seleccionada es igual a la fecha actual
-  const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
+  //const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
 
 
   // Comprobar si la fecha seleccionada está dentro del rango de vacaciones
- if (selectedDate >= vacationStart && selectedDate <= vacationEnd) {
+ //if (selectedDate >= vacationStart && selectedDate <= vacationEnd) {
     // Mostrar popup y detener ejecución si la fecha está en el rango de vacaciones
-   Swal.fire(
-      'Cerrado por vacaciones',
-      'No aceptamos reservas del 11 al 29 de Agosto del 2025. ¡Esperamos verte a partir del 1 de septiembre!',
-      'info'
-    );
-    return; // Detener la ejecución de la función
-  }
+  // Swal.fire(
+     // 'Cerrado por vacaciones',
+     // 'No aceptamos reservas del 11 al 29 de Agosto del 2025. ¡Esperamos verte a partir del 1 de septiembre!',
+     // 'info'
+   // );
+   // return; // Detener la ejecución de la función
+ // }
   // Comprobar si la reserva es para el mismo día y después de las 11 de la mañana
   if (isSameDay && currentHour >= 11) {
     Swal.fire(
