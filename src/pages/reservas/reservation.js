@@ -61,8 +61,8 @@ const ReservasPage = () => {
  // const currentDate = new Date();
   //const currentHour = currentDate.getHours();
 
-  // Comprobar si la fecha seleccionada es igual a la fecha actual
-  //const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
+  //Comprobar si la fecha seleccionada es igual a la fecha actual
+  const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
 
 
   // Comprobar si la fecha seleccionada está dentro del rango de vacaciones
