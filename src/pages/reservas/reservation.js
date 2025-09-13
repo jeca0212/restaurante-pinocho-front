@@ -55,11 +55,11 @@ const ReservasPage = () => {
   //const vacationEnd = new Date('2025-08-29');
 
   // Convertir la fecha seleccionada por el usuario a objeto Date
- // const selectedDate = new Date(formData.date);
+ const selectedDate = new Date(formData.date);
   
     // Obtener la fecha y hora actuales
- // const currentDate = new Date();
-  //const currentHour = currentDate.getHours();
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
 
   //Comprobar si la fecha seleccionada es igual a la fecha actual
   const isSameDay = selectedDate.toDateString() === currentDate.toDateString();
